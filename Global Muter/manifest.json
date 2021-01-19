@@ -5,20 +5,27 @@
   },
   "description": "TankTrouble Global Muter!",
   "icons": {
-    "16": "./icons/16x16.png",
-    "24": "./icons/24x24.png",
-    "32": "./icons/32x32.png",
-    "48": "./icons/48x48.png",
-    "128": "./icons/128x128.png",
-    "256": "./icons/256x256.png"
+    "16": "./icons/OFF_16x16.png",
+    "24": "./icons/OFF_24x24.png",
+    "32": "./icons/OFF_32x32.png",
+    "48": "./icons/OFF_48x48.png",
+    "128": "./icons/OFF_128x128.png",
+    "256": "./icons/OFF_256x256.png"
   },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": [ "https://tanktrouble.com/*", "https://beta.tanktrouble.com/*" ],
+      "run_at": "document_end"
+    }
+  ],
   "background": {
     "scripts": ["background.js"],
     "persistent": true
   },
   "manifest_version": 2,
   "name": "TT Global Muter",
-  "permissions": ["activeTab"],
+  "permissions": ["storage", "activeTab", "tabs"],
   "short_name": "TT Global Muter",
   "version": "1.0"
 }
